@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KuttyLink - URL Shortener</title>
+    </title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <main class="container">
+        <div class="card">
+            <h1>KuttyLink</h1>
+            <p>Paste link  and Get KuttyLink</p>
+            
+            <div class="input-container">
+                <input type="url" id="long-url-input" placeholder="https://example.com/very/long/url/to/shorten" required>
+                <button id="shorten-btn">Get Link</button>
+            </div>
+
+            <div class="result-container" id="result">
+                <input type="text" id="short-url-input" readonly>
+                <button id="copy-btn">Copy</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

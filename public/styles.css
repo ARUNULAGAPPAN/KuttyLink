@@ -1,0 +1,159 @@
+/* MODIFIED: Import the new modern font, Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap');
+
+/* --- Global Styles & Background --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* MODIFIED: Changed the font-family to Montserrat */
+    font-family: 'Montserrat', sans-serif; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #1a0a2b; /* Deep space color */
+    background-image: radial-gradient(circle at top left, #7e22ce, transparent 40%),
+                      radial-gradient(circle at bottom right, #1e3a8a, transparent 40%);
+    overflow: hidden; /* Hide scrollbars */
+    cursor: none; /* Hide the default cursor */
+}
+
+/* --- Star Trail Cursor --- */
+.trail {
+    position: absolute;
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #ffffff 0%, rgba(255,255,255,0) 60%);
+    pointer-events: none; /* So the trail doesn't interfere with clicks */
+    z-index: 9999;
+    animation: fadeOut 0.7s linear forwards;
+    transform: translate(-50%, -50%); /* Center the trail on the cursor point */
+}
+
+@keyframes fadeOut {
+    to {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+    }
+}
+
+/* --- Main Card (Glassmorphism) --- */
+.card {
+    width: 90%;
+    max-width: 500px;
+    padding: 40px 30px;
+    text-align: center;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.card h1 {
+    /* MODIFIED: Updated font and added the glow effect */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800; /* Use ExtraBold for a strong impact like the image */
+    font-size: 2.8rem;
+    text-transform: uppercase; /* Makes text all caps like the image */
+    margin-bottom: 15px;
+    color: #fff;
+    /* This text-shadow creates the glow effect from your image */
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 
+                 0 0 25px rgba(255, 255, 255, 0.6);
+}
+
+.card p {
+    font-weight: 400; /* Regular weight for body text */
+    margin-bottom: 30px;
+    color: #e0e0e0;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* --- Input & Button Styles --- */
+.input-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input[type="url"], input[type="text"] {
+    flex-grow: 1;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+    /* MODIFIED: Ensure inputs use the modern font */
+    font-family: 'Montserrat', sans-serif;
+}
+
+input::placeholder {
+    color: #a0a0a0;
+}
+
+input:focus {
+    border-color: #a78bfa;
+    box-shadow: 0 0 15px rgba(167, 139, 250, 0.5);
+}
+
+button {
+    padding: 15px 25px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    /* MODIFIED: Use a semi-bold weight for buttons */
+    font-weight: 600; 
+    cursor: none;
+    transition: all 0.3s ease;
+    color: #fff;
+}
+
+/* The Glow Effect Button */
+#shorten-btn {
+    background: #7e22ce;
+    box-shadow: 0 0 10px #7e22ce, 0 0 20px #7e22ce;
+}
+
+#shorten-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px #a855f7, 0 0 30px #a855f7;
+}
+
+#copy-btn {
+    background: #1e40af;
+    box-shadow: 0 0 10px #1e40af, 0 0 20px #1e40af;
+}
+
+#copy-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px #3b82f6, 0 0 30px #3b82f6;
+}
+
+/* --- Result Area --- */
+.result-container {
+    display: none; /* Hidden by default */
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.result-container.show {
+    display: flex; /* Shown via JavaScript */
+}
+
+input#short-url-input {
+    background: rgba(0, 0, 0, 0.4);
+    color: #c4b5fd;
+    font-weight: 600; /* Use semi-bold for the result */
+}
